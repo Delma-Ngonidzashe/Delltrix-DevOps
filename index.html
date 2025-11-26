@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SuperBikes - Modern Motorcycle Sales</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e2e8f0, #f8fafc);
+      margin: 0;
+      padding-top: 74px;
+    }
+    .navbar {
+      background: #1e293b !important;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #cbd5e1 !important;
+    }
+    .navbar-nav .nav-link {
+      color: #cbd5e1 !important;
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+      color: #fbbf24 !important;
+    }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      height: 60vh;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+      border-radius: 12px;
+      margin: 1rem;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 2rem auto 4rem;
+    }
+    .bike-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .bike-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    }
+    .bike-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .bike-card-body {
+      padding: 1rem 1.5rem 1.5rem;
+    }
+    .bike-card h3 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+    .bike-card p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .btn-primary {
+      background: #f59e0b;
+      border: none;
+      font-weight: 700;
+      transition: background 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: #d97706;
+    }
+    footer {
+      background: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<script>
+function showBikeDetails(name, desc, imgSrc) {
+  document.getElementById('bikeDetailsLabel').textContent = name;
+  document.getElementById('bikeDetailsContent').innerHTML =
+    `<img src="${imgSrc}" alt="${name}" style="width:100%;max-width:8000px;border-radius:20px;margin-bottom:2px;"><p>${desc}</p>`;
+  var modal = new bootstrap.Modal(document.getElementById('bikeDetailsModal'));
+  modal.show();
+}
+</script>
+
+
+<body>
+  <!-- Details Modal -->
+<div class="modal fade" id="bikeDetailsModal" tabindex="-1" aria-labelledby="bikeDetailsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bikeDetailsLabel">Bike Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="bikeDetailsContent">
+        <!-- Details will appear here -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Delltrix SuperBikes</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-3">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navExplore" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Explore Bikes
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navExplore">
+            <li><a class="dropdown-item" href="#">Yamaha</a></li>
+            <li><a class="dropdown-item" href="#">Suzuki</a></li>
+            <li><a class="dropdown-item" href="#">Honda</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Discover your next ride</h1>
+  <p>The latest Yamaha, Suzuki, Honda motorcycles</p>
+</section>
+
+<div class="container">
+  <h2 class="mb-4 text-center">Featured Motorcycles</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="bike-card">
+      <img src="images/mt15.jpg" alt="MT-15" />
+        <div class="bike-card-body">
+          <h3>Yamaha MT-15</h3>
+          <p><i>A sporty, stylish, and powerful street bike from Yamaha.</i></p>
+  <button class="btn btn-primary w-100"
+ onclick="showBikeDetails('Yamaha MT-15','<i >The Yamaha MT-15 is a sports naked bike manufactured by Yamaha since 2018, based on the Yamaha YZF-R15 platform, featuring a 155 cc liquid-cooled, 4-stroke, SOHC, 4-valve single-cylinder engine with variable valve timing (VVA).</i>','images/mt15.jpg')">Details</button>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="bike-card">
+        <img src="images/gixxer.jpg" alt="Suzuki Gixxer" />
+        <div class="bike-card-body">
+          <h3>Suzuki Gixxer</h3>
+          <p>Performance with best value, designed for city and fun riding.</p>
+ <button class="btn btn-primary w-100"
+ onclick="showBikeDetails('Suzuki Gixxer','<i>The Suzuki Gixxer is a 155 cc, single-cylinder, air-cooled, SOHC engine motorcycle with a 5-speed manual transmission and a kerb weight of 141 kg. It features a sporty design, LED headlamp, digital instrument cluster, and disc brakes with ABS for enhanced safety.</i>','images/gixxer.jpg')">Details</button>         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="bike-card">
+        <img src="images/honda cb.jpg" alt="Honda CB Hornet"/>
+        <div class="bike-card-body">
+          <h3>Honda CB Hornet</h3>
+          <p><i>Reliable performance machine with aggressive looks.</p>
+          <button class="btn btn-primary w-100"
+ onclick="showBikeDetails('Honda CB Hornet','<i>The Honda CB125 Hornet is a 123.94 cc, 4-stroke, single-cylinder, fuel-injected engine motorcycle designed for the Indian market, launched to celebrate Hondas 25 years in India. It produces 11.14 PS of power at 7500 rpm and 11.2 Nm of torque at 6000 rpm, paired with a 5-speed manual transmission.</i>','images/honda cb.jpg')">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mt-5 text-center">About Us</h2>
+  <p class="text-center fs-5 px-md-5 px-3">We offer the latest models, best prices, and trusted service for all your motorcycle needs. Browse our bikes, request test rides, or contact us for more information!</p>
+</div>
+
+<footer>
+  &copy; 2025 Delltrix SuperBikes Showroom. All rights reserved.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
